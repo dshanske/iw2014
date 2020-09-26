@@ -246,9 +246,6 @@ function iw2014_has_featured_posts() {
  * @since Twenty Fourteen 1.0
  */
 function iw2014_widgets_init() {
-	require get_template_directory() . '/inc/widgets.php';
-	register_widget( 'Twenty_Fourteen_Ephemera_Widget' );
-
 	register_sidebar(
 		array(
 			'name'          => __( 'Primary Sidebar', 'iw2014' ),
