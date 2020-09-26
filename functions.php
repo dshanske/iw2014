@@ -335,10 +335,6 @@ function iw2014_scripts() {
 	// Theme block stylesheet.
 	wp_enqueue_style( 'iw2014-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'iw2014-style' ), '20190102' );
 
-	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'iw2014-ie', get_template_directory_uri() . '/css/ie.css', array( 'iw2014-style' ), '20140701' );
-	wp_style_add_data( 'iw2014-ie', 'conditional', 'lt IE 9' );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
