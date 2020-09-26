@@ -61,7 +61,7 @@ if ( ! function_exists( 'iw2014_setup' ) ) :
 		load_theme_textdomain( 'iw2014' );
 
 		// This theme styles the visual editor to resemble the theme style.
-		add_editor_style( array( 'css/editor-style.css', iw2014_font_url(), 'genericons/genericons.css' ) );
+		add_editor_style( array( 'css/editor-style.css', iw2014_font_url(), 'genericons-neue/Genericons-Neue.css' ) );
 
 		// Load regular editor styles into the new block-based editor.
 		add_theme_support( 'editor-styles' );
@@ -320,7 +320,7 @@ function iw2014_scripts() {
 	wp_enqueue_style( 'iw2014-lato', iw2014_font_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
+	wp_enqueue_style( 'genericons-neue', get_template_directory_uri() . '/genericons-neue/Genericons-Neue.css', array(), '4.0.5' );
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'iw2014-style', get_stylesheet_uri(), array(), '20190507' );
