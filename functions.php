@@ -382,8 +382,8 @@ add_action( 'admin_print_scripts-appearance_page_custom-header', 'iw2014_admin_f
  *
  * @since Twenty Fourteen 1.9
  *
- * @param array   $urls          URLs to print for resource hints.
- * @param string  $relation_type The relation type the URLs are printed.
+ * @param array  $urls          URLs to print for resource hints.
+ * @param string $relation_type The relation type the URLs are printed.
  * @return array URLs to print for resource hints.
  */
 function iw2014_resource_hints( $urls, $relation_type ) {
@@ -584,6 +584,16 @@ function iw2014_body_classes( $classes ) {
 		$classes[] = 'grid';
 	}
 
+	// Adds a class of hfeed to non-singular pages.
+	if ( ! is_singular() ) {
+		$classes[] = 'hfeed';
+		$classes[] = 'h-feed';
+	} else {
+		if ( 'page' !== get_post_type() ) {
+			$classes[] = 'hentry';
+			$classes[] = 'h-entry';
+		}
+	}
 	return $classes;
 }
 add_filter( 'body_class', 'iw2014_body_classes' );
@@ -603,6 +613,18 @@ function iw2014_post_classes( $classes ) {
 	if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) {
 		$classes[] = 'has-post-thumbnail';
 	}
+
+	$classes = array_diff( $classes, array( 'hentry' ) );
+	if ( ! is_singular() ) {
+		if ( 'page' !== get_post_type() ) {
+			// Adds a class for microformats v2
+			$classes[] = 'h-entry';
+			// add hentry to the same tag as h-entry
+			$classes[] = 'hentry';
+		}
+	}
+
+	$class[] = 'entry';
 
 	return $classes;
 }
