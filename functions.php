@@ -36,13 +36,6 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 474;
 }
 
-/**
- * Twenty Fourteen only works in WordPress 3.6 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '3.6', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
-}
-
 if ( ! function_exists( 'iw2014_setup' ) ) :
 	/**
 	 * Twenty Fourteen setup.
